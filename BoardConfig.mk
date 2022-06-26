@@ -130,10 +130,10 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
 
-TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/linux-x86/dtc/dtc LLVM=1
+TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/linux-x86/dtc/dtc LLVM=1 LLVM_IAS=1
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := r445002
+TARGET_KERNEL_CLANG_VERSION := r450784e
 TARGET_KERNEL_CONFIG := odin_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/odin
 BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0
@@ -150,7 +150,6 @@ BOARD_KERNEL_CMDLINE += swiotlb=0
 BOARD_KERNEL_CMDLINE += pcie_ports=compat
 BOARD_KERNEL_CMDLINE += iptable_raw.raw_before_defrag=1
 BOARD_KERNEL_CMDLINE += ip6table_raw.raw_before_defrag=1
-BOARD_KERNEL_CMDLINE += video=vfb:640x400,bpp=32,memsize=3072000
 #BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Kernel modules
@@ -257,3 +256,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 -include vendor/xiaomi/odin/BoardConfigVendor.mk
+-include vendor/xiaomi/odin-firmware/BoardConfigVendor.mk
